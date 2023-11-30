@@ -1,26 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Instituto</a>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
-                </li>
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="/registrar">Registrar Alumno</a>
-                </li>
 
-                <button class="btn btn-outline-primary">
-                  Ingresar
-                </button>
+    <a class="navbar-brand" href="#">Instituto</a>
 
-                <button class="btn btn-outline-danger">
-                  Salir
-                </button>
-            </ul>
-            <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['home']">Home</a>
+            </li>
+
+            <li class="nav-item" routerLinkActive="active">
+                <!-- <a class="nav-link" [routerLink]="['precios']">Precios</a> -->
+            </li>
+
+            <li class="nav-item" routerLinkActive="active" *ngIf="auth.loggedIn">
+                <a class="nav-link" [routerLink]="['protegida']" *ngIf="auth.loggedIn">Registrar</a>
+            </li>
+        </ul>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="navbar-text">
+
+      <button *ngIf="!auth.loggedIn"
+      (click)="auth.login()"
+      class="btn btn-outline-primary">
+       Ingresar
+      </button>
+
+      <button *ngIf="auth.loggedIn"
+      (click)="auth.logout()"
+      class="btn btn-outline-danger">
+        salir
+       </button>
+
+    </span>
     </div>
 </nav>
