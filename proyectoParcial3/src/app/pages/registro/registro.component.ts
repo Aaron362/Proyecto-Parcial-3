@@ -55,13 +55,13 @@ export class RegistroComponent {
       let peticion: Observable<any>;
 
       if (this.alumno.id) {
-        peticion = this.alumnoService.actualizarHeroe(this.alumno);
+        peticion = this.alumnoService.actualizarAlumno(this.alumno);
         Swal.fire({
             title: this.alumno.nombre,
             text: 'Se actualizó correctamente',
             icon: 'success'
           }).then(() => {
-            // Redirigir a la página deseada
+            // Redireccion
             this.router.navigate(['/alumno']);
           });
 
@@ -72,7 +72,7 @@ export class RegistroComponent {
             text: 'Se creó correctamente',
             icon: 'success'
           }).then(() => {
-            // Redirigir a la página deseada
+
             this.router.navigate(['/alumno']);
           });
       }

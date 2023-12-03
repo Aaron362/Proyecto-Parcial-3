@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'registro/:id', component: RegistroComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'home', component: HomeComponent},
-
   { path: 'alumno', component: AlumnoComponent},
   { path: '**',pathMatch: 'full', redirectTo: 'home' }
 ];

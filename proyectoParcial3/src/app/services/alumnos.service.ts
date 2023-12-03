@@ -23,7 +23,7 @@ export class AlumnosService {
       );
   }
 
-  actualizarHeroe( alumno: AlumnoModel ) {
+  actualizarAlumno( alumno: AlumnoModel ) {
 
     const alumnoTemp = {
      ...alumno
@@ -33,6 +33,7 @@ export class AlumnosService {
     return this.http.put(`${this.url}/alumno/${alumno.id}.json`, alumnoTemp);
 
   }
+
 
   borrarAlumno( id: string ){
 
