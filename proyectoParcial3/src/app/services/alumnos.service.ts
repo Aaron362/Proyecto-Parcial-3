@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlumnoModel } from '../models/alumno.model';
+import { map } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
