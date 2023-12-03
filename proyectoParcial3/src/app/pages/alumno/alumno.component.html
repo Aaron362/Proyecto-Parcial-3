@@ -5,11 +5,10 @@
     <a class="btn btn-primary" routerLink="/registro/nuevo" role="button">Registrar nuevo alumno</a>
   </div>
 </div>
-
-<table class="table mt-3">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
+<table class="table mt-3 table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
             <th scope="col">Imagen</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
@@ -19,21 +18,30 @@
             <th scope="col">Grupo</th>
             <th scope="col">Carrera</th>
             <th scope="col">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>jpg.a13sx2j123ijox213123</td>
-      <td>Aaron</td>
-      <td>Macarena</td>
-      <td>Hembra</td>
-      <td>Davidconde.com</td>
-      <td>Reprobado</td>
-      <td>a3</td>
-      <td>Programacion</td>
-      <td></td>
-    </tr>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alumno of alumno; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{ alumno.imagen}}</td>
+            <td>{{ alumno.nombre}}</td>
+            <td>{{ alumno.apellido}}</td>
+            <td>{{ alumno.sexo}}</td>
+            <td>{{ alumno.correo}}</td>
+            <td>{{ alumno.aprobado_reprobado}}</td>
+            <td>{{ alumno.grupo}}</td>
+            <td>{{ alumno.carrera}}</td>
+            <td>
+              <button type="button"
+              class="btn btn-success mr-3"
+              [routerLink]="['/registro', alumno.id]">Actualizar</button>
+              <button type="button"
+              class="btn btn-danger"
+              (click)="borrarAlumno( alumno, i)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-  </tbody>
-</table>
+
+

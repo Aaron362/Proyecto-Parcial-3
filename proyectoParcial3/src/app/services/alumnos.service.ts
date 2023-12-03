@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlumnoModel } from '../models/alumno.model';
-import { map } from 'rxjs/operators'
+import { map, delay  } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -22,4 +22,55 @@ export class AlumnosService {
         })
       );
   }
+
+  actualizarHeroe( alumno: AlumnoModel ) {
+
+    const alumnoTemp = {
+     ...alumno
+    };
+    delete alumnoTemp.id;
+
+    return this.http.put(`${this.url}/alumno/${alumno.id}.json`, alumnoTemp);
+
+  }
+
+  borrarAlumno( id: string ){
+
+    return this.http.delete(`${this.url}/alumno/${id}.json`)
+
+  }
+
+
+  getAlumno( id: string ){
+
+    return this.http.get(`${this.url}/alumno/${id}.json`)
+
+  }
+
+  getAlumnos(){
+    return this.http.get(`${this.url}/alumno.json`)
+    .pipe(
+     map( this.crearArreglo ),
+     delay(0)
+    );
+  }
+
+private crearArreglo( alumnoObj: { [key: string]: AlumnoModel } | any): AlumnoModel[]{
+
+  const alumnos: AlumnoModel[] = [];
+  console.log(alumnoObj);
+
+  Object.keys (alumnoObj).forEach( key =>{
+    const alumno: AlumnoModel = alumnoObj[key];
+    alumno.id = key;
+
+    alumnos.push(alumno);
+
+  });
+
+  if (alumnoObj === null ){ return []; }
+
+  return alumnos;
+}
+
 }
