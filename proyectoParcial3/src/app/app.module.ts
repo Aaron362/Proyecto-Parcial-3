@@ -11,6 +11,7 @@ import { AlumnoComponent } from './pages/alumno/alumno.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { RegistroComponent } from './pages/registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import {FormsModule} from '@angular/forms';
     RegistrarComponent,
     HomeComponent,
     CallbackComponent,
-    AlumnoComponent
+    AlumnoComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
