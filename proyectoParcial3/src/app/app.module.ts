@@ -17,6 +17,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
     AppComponent,
     NavbarComponent,
     RegistrarComponent,
+    RegistroComponent,
     HomeComponent,
     CallbackComponent,
     AlumnoComponent,

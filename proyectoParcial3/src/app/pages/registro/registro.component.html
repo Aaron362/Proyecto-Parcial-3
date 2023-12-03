@@ -11,22 +11,12 @@
     </button>
   </div>
 </div>
-
-<form  #f="ngForm">
+<form (ngSubmit)="guardar( f )" #f="ngForm">
   <div class="card w-75 mb-3 mx-auto mt-5">
     <div class="card-header">
       Datos del alumno
     </div>
     <div class="card-body">
-  <!--   <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">Id</label>
-        <input type="text"
-        class="form-control"
-        id="formGroupExampleInput"
-        placeholder="Example input placeholder"
-        [(ngModel)]="alumno.id"
-        name="id">
-      </div> -->
       <div class="mb-3">
         <div class="mb-3">
           <label for="formFileMultiple" class="form-label">Imagen</label>
@@ -34,7 +24,7 @@
           type="file"
           id="formFileMultiple"
           multiple
-
+          [(ngModel)]="alumno.imagen"
           name="imagen"
           required="required">
         </div>
@@ -45,7 +35,7 @@
         class="form-control"
         id="formGroupExampleInput"
         placeholder="Nombre"
-
+        [(ngModel)]="alumno.nombre"
         name="nombre">
       </div>
       <div class="mb-3">
@@ -54,7 +44,7 @@
         class="form-control"
         id="formGroupExampleInput2"
         placeholder="Apellido"
-
+        [(ngModel)]="alumno.apellido"
         name="apellido">
       </div>
       <div class="mb-3">
@@ -63,14 +53,14 @@
         class="form-control"
         id="formGroupExampleInput2"
         placeholder="Correo"
-
+        [(ngModel)]="alumno.correo"
         name="correo">
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput5" class="form-label">Sexo</label>
         <select class="form-select"
         aria-label="Default select example"
-
+        [(ngModel)]="alumno.sexo"
         name="sexo">
           <option selected></option>
           <option value="Masculino">Masculino</option>
@@ -81,22 +71,18 @@
         <label for="formGroupExampleInput7" class="form-label">Carrera</label>
         <select class="form-select"
         aria-label="Default select example"
-
+        [(ngModel)]="alumno.carrera"
         name="carrera">
           <option selected></option>
           <option value="Progrmacion">Progrmacion</option>
-          <option value="Contabilidad">Contabilidad</option>
-          <option value="RH Matutino">Recursos Humanos Matutino</option>
-          <option value="RH Vespertino">Recursos Humanos Vespertino</option>
-          <option value="Electricidad">Electricidad</option>
-          <option value="CD">Ciencia de datos</option>
+          <option value="Contabilidad">Electricidad</option>
         </select>
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput6" class="form-label">Grupo</label>
         <select class="form-select"
         aria-label="Default select example"
-
+        [(ngModel)]="alumno.grupo"
         name="grupo">
           <option selected></option>
           <option value="PMT">PMT</option>
@@ -125,3 +111,4 @@
     </div>
   </div>
   </form>
+

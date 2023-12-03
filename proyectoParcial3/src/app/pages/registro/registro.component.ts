@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AlumnoModel } from 'src/app/models/alumno.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
+  alumno:AlumnoModel =new AlumnoModel();
+constructor(){
 
+}
+guardar(form:NgForm){
+
+}
 }
