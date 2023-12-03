@@ -5,8 +5,9 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { AlumnoComponent } from './pages/alumno/alumno.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
   { path: 'registrar', component: RegistrarComponent},
+  { path: 'home', component: HomeComponent},
+
   { path: 'alumno/:id', component: AlumnoComponent},
   { path: '**',pathMatch: 'full', redirectTo: 'home' }
 ];

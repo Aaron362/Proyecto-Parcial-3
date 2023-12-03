@@ -13,8 +13,8 @@ import { AlumnoComponent } from './pages/alumno/alumno.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
     RegistrarComponent,
+    HomeComponent,
     CallbackComponent,
     AlumnoComponent
   ],
