@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { CallbackComponent } from './components/callback/callback.component';
+import { AlumnoComponent } from './pages/alumno/alumno.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CallbackComponent } from './components/callback/callback.component';
     NavbarComponent,
     HomeComponent,
     RegistrarComponent,
-    CallbackComponent
+    CallbackComponent,
+    AlumnoComponent
   ],
   imports: [
     BrowserModule,
