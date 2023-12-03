@@ -7,8 +7,8 @@ import { AlumnoComponent } from './pages/alumno/alumno.component';
 const routes: Routes = [
   { path: 'registrar', component: RegistrarComponent},
   { path: 'home', component: HomeComponent},
-
   { path: 'alumno/:id', component: AlumnoComponent},
+  { path: 'alumno', component: AlumnoComponent},
   { path: '**',pathMatch: 'full', redirectTo: 'home' }
 ];
 

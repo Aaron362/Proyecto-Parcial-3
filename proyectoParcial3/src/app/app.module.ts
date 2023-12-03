@@ -9,6 +9,8 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { AlumnoComponent } from './pages/alumno/alumno.component';
 
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { AlumnoComponent } from './pages/alumno/alumno.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
