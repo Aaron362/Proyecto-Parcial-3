@@ -23,6 +23,24 @@ export class RegistroComponent {
 
     ngOnInit() {
 
+      function calcularPromedio() {
+        const c1 = parseFloat((document.getElementById('c1') as HTMLInputElement).value);
+        const c2 = parseFloat((document.getElementById('c2') as HTMLInputElement).value);
+        const c3 = parseFloat((document.getElementById('c3') as HTMLInputElement).value);
+
+        // Calcular el promedio
+        const promedio = (c1 + c2 + c3) / 3;
+
+        (document.getElementById('promedio') as HTMLInputElement).value = promedio.toFixed(2);
+      }
+
+        const calcularButton = document.getElementById('calPromedio');
+        if (calcularButton) {
+          calcularButton.addEventListener('click', calcularPromedio);
+        }
+
+
+
       const id = this.route.snapshot.paramMap.get('id');
 
       if( id!== 'nuevo' ) {
