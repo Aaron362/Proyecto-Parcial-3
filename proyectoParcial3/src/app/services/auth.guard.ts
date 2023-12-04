@@ -1,3 +1,10 @@
+
+import { CanActivateFn } from '@angular/router';
+
+export const authGuard: CanActivateFn = (route, state) => {
+  return true;
+};
+
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -16,3 +23,4 @@ export class AuthGuardService implements CanActivate {
 
   }
 }
+

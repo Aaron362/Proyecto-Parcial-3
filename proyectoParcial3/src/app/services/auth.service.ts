@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
-import createAuth0Client from '@auth0/auth0-spa-js';
-import Auth0Client from '@auth0/auth0-spa-js/dist/typings/Auth0Client';
-import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from 'rxjs';
-import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
-import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   // Create an observable of Auth0 instance of client
   auth0Client$ = (from(
     createAuth0Client({
@@ -116,4 +113,5 @@ export class AuthService {
       });
     });
   }
+
 }
