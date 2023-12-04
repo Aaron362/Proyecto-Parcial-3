@@ -3,7 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+
     "proyectoParcial3": {
+
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +15,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
             "outputPath": "dist/proyecto-parcial3",
+
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +64,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+
               "browserTarget": "proyectoParcial3:build:production"
             },
             "development": {
               "browserTarget": "proyectoParcial3:build:development"
+
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +77,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+
             "browserTarget": "proyectoParcial3:build"
+
           }
         },
         "test": {
@@ -94,8 +102,10 @@
         }
       }
     }
+
   },
   "cli": {
     "analytics": "e3a3c361-2981-4ac5-abf1-99f987425b2d"
+
   }
 }

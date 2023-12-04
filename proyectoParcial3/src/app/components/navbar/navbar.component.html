@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Instituto</a>
         <div class="collapse navbar-collapse" id="navbarText">
@@ -11,18 +12,33 @@
                 <li class="nav-item"  routerLinkActive="active">
                   <a class="nav-link" routerLink="/alumno">ver tabla</a>
                 </li>
+ <li class="nav-item" routerLinkActive="active" *ngIf="auth.loggedIn">
+                <a class="nav-link" [routerLink]="['protegida']" *ngIf="auth.loggedIn">Registrar</a>
+            </li>
+        </ul>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="navbar-text">
 
-                <button class="btn btn-outline-primary">
-                  Ingresar
-                </button>
+      <button *ngIf="!auth.loggedIn"
+      (click)="auth.login()"
+      class="btn btn-outline-primary">
+       Ingresar
+      </button>
 
-                <button class="btn btn-outline-danger">
-                  Salir
-                </button>
-            </ul>
-            <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
-        </div>
+      <button *ngIf="auth.loggedIn"
+      (click)="auth.logout()"
+      class="btn btn-outline-danger">
+        salir
+       </button>
+
+    </span>
+
+
+
+ 
+
+           
+
     </div>
 </nav>
