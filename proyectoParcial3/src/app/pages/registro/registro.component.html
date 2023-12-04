@@ -12,7 +12,7 @@
   </div>
 </div>
 <form (ngSubmit)="guardar( f )" #f="ngForm">
-  <div class="card w-75 mb-3 mx-auto mt-5">
+  <div class="card w-75 mb-3 mx-auto  text-white bg-dark mt-5">
     <div class="card-header">
       Datos del alumno
     </div>
@@ -108,10 +108,10 @@
       <div class="mb-3">
         <label for="formGroupExampleInput11" class="form-label">Promedio</label>
         <input type="text" class="form-control" name="formGroupExampleInput2" placeholder="Promedio" id="promedio" disabled>
-        <input type="button" value="Calcular Promedio" class="btn btn-primary" id="calPromedio" name="calPromedio">
+        <input type="button" value="Calcular Promedio" class="btn btn-outline-success" id="calPromedio" name="calPromedio">
       </div>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button  class="btn btn-outline-success" type="submit">Guardar</button>
       </div>
     </div>
   </div>
