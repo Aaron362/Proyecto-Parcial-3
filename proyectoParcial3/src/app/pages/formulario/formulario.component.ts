@@ -1,29 +1,31 @@
+import { AlumnoModel } from './../../models/alumno.model';
 import { Component } from '@angular/core';
-import { AlumnoModel } from 'src/app/models/alumno.model';
 import { NgForm } from '@angular/forms';
-import { AlumnosService } from '../../services/alumnos.service';
+import { AlumnoService } from '../../services/alumno.service';
 
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+
 @Component({
   selector: 'app-formulario',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  templateUrl: './formulario.component.html',
+  styleUrls: ['./formulario.component.css']
 })
-export class RegistroComponent {
+export class FormularioComponent {
 
   alumno = new AlumnoModel();
   selectedFile: File | null = null;
-  constructor(private alumnoService: AlumnosService,
+
+  constructor(private alumnoService: AlumnoService,
     private route: ActivatedRoute,
     private router: Router,
     private storage: AngularFireStorage ) { }
 
 
-
     ngOnInit() {
+
 
       function asignarGrupo() {
         const carrera = (document.getElementById('carrera') as HTMLInputElement).value;
@@ -33,7 +35,7 @@ export class RegistroComponent {
             grupo = "A";
         } else if (carrera === "Contabilidad TV") {
             grupo = "B";
-        } else if (carrera === "Programación") {
+        } else if (carrera === "Programacion") {
             grupo = "C";
         } else if (carrera === "A.R.H TM") {
             grupo = "D";
@@ -95,8 +97,6 @@ export class RegistroComponent {
            this.alumno.id = id;
         });
       }
-
-
     }
 
     onFileSelected(event: any) {
@@ -159,7 +159,7 @@ export class RegistroComponent {
             icon: 'success'
           }).then(() => {
             // Redirigir a la página deseada
-            this.router.navigate(['/alumno']);
+            this.router.navigate(['/tabla']);
           });
 
       } else {
@@ -170,7 +170,7 @@ export class RegistroComponent {
             icon: 'success'
           }).then(() => {
             // Redirigir a la página deseada
-            this.router.navigate(['/alumno']);
+            this.router.navigate(['/tabla']);
           });
       }
       function asignarGrupo() {
@@ -180,17 +180,17 @@ export class RegistroComponent {
         if (carrera === "Contabilidad TM") {
             grupo = "A";
         } else if (carrera === "Contabilidad TV") {
-            grupo = "F";
-        } else if (carrera === "Programación") {
             grupo = "B";
-        } else if (carrera === "A.R.H TM") {
+        } else if (carrera === "Programacion") {
             grupo = "C";
-        } else if (carrera === "A.R.H TV") {
-            grupo = "G";
-        } else if (carrera === "Electricidad") {
+        } else if (carrera === "A.R.H TM") {
             grupo = "D";
-        } else if (carrera === "Ciencia de datos") {
+        } else if (carrera === "A.R.H TV") {
             grupo = "E";
+        } else if (carrera === "Electricidad") {
+            grupo = "F";
+        } else if (carrera === "Ciencia de datos") {
+            grupo = "G";
         }
 
         const g = grupo;

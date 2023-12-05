@@ -1,30 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
-import { RegistrarComponent } from './components/registrar/registrar.component';
-import { CallbackComponent } from './components/callback/callback.component';
-import { AlumnoComponent } from './pages/alumno/alumno.component';
-import { environment } from 'src/environments/environment';
+import { InicioComponent } from './navbar/inicio/inicio.component';
+import { FormularioComponent } from './pages/formulario/formulario.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { RegistroComponent } from './pages/registro/registro.component';
-import { CredencialesService } from './models/credenciales.model';
+import { environment } from 'src/environments/environment';
+import { MenuComponent } from './navbar/menu/menu.component';
+import { TablaComponent } from './pages/tabla/tabla.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { TablaAlumnoComponent } from './pages/tabla-alumno/tabla-alumno.component';
+import { LoginComponent } from './pages/login/login.component';
+import { TablaAlumnosComponent } from './pages/tabla-alumnos/tabla-alumnos.component';
+import { CredencialesService } from './models/credenciales.model';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    RegistrarComponent,
-    RegistroComponent,
-    HomeComponent,
-    CallbackComponent,
-    AlumnoComponent,
-    RegistroComponent,
-    TablaAlumnoComponent
+    InicioComponent,
+    FormularioComponent,
+    MenuComponent,
+    TablaComponent,
+    LoginComponent,
+    TablaAlumnosComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +31,6 @@ import { TablaAlumnoComponent } from './pages/tabla-alumno/tabla-alumno.componen
     HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-
   ],
   providers: [CredencialesService],
   bootstrap: [AppComponent]

@@ -20,7 +20,7 @@ export class LoginComponent {
     if (email === this.emailAdmin && password === this.passwordAdmin) {
       console.log("Credenciales correctas");
       this.credencialesService.setCredencialesCorrectas(true);
-      this.router.navigate(['/alumno']);
+      this.router.navigate(['/tabla']);
     } else {
       console.log("Credenciales incorrectas");
       this.credencialesService.setCredencialesCorrectas(false);

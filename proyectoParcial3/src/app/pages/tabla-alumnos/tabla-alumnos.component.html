@@ -1,11 +1,9 @@
-<H1>lista de alumnos</H1>
-<hr>
-<div class="row">
-  <div class="cool text-right">
-    <a class="btn btn-outline-warning" routerLink="/registro/nuevo" role="button">Registrar nuevo alumno</a>
+<app-menu></app-menu>
+<div class="card w-75 mb-3 mx-auto mt-5">
+  <div class="card-header">
   </div>
   <div class="card-body">
-    <table class="table mt-3 table-striped">
+    <table class="table table-dark">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -18,11 +16,10 @@
           <th scope="col">Aprobado/Reprobado</th>
           <th scope="col">Grupo</th>
           <th scope="col">Carrera</th>
-          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let alumno of alumno; let i = index">
+        <tr *ngFor="let alumno of alumnos; let i = index">
           <th scope="row">{{i+1}}</th>
           <td>
             <img [src]="alumno.imagen " alt="Imagen " width="60">
@@ -35,13 +32,9 @@
           <td>{{ alumno.aprobado_reprobado}}</td>
           <td>{{ alumno.grupo}}</td>
           <td>{{ alumno.carrera}}</td>
-          <td>
-            <button type="button" class="btn btn-success mr-3"
-              [routerLink]="['/registro', alumno.id]">Actualizar</button>
-            <button type="button" class="btn btn-danger" (click)="borrarAlumno( alumno, i)">Eliminar</button>
-          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+

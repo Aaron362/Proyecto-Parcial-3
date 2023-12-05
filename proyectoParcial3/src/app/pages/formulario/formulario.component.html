@@ -1,10 +1,10 @@
+<app-menu></app-menu>
 <h1>Alumno <small></small></h1>
 <hr>
-
 <div class="row text-right">
   <div class="col">
     <button class="btn btn-danger"
-            routerLink="/alumno">
+            routerLink="/tabla">
       <i class="fa fa-arrow-left">
         Regresar
       </i>
@@ -12,7 +12,7 @@
   </div>
 </div>
 <form (ngSubmit)="guardar( f )" #f="ngForm">
-  <div  class="card w-75 mb-3 mx-auto  text-white bg-dark mt-5">
+  <div class="card w-75 mb-3 mx-auto  text-white bg-dark mt-5">
     <div class="card-header">
       Datos del alumno
     </div>
@@ -23,7 +23,6 @@
             <h4>Vista previa de la imagen seleccionada:</h4>
             <img [src]="alumno.imagen" *ngIf="alumno.imagen" width="200">
         </div>
-
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput2" class="form-label">Nombre</label>
@@ -59,9 +58,9 @@
           <option selected></option>
           <option value="Contabilidad TM">Contabilidad TM</option>
           <option value="Contabilidad TV">Contabilidad TV</option>
-          <option value="Programación">Programación</option>
-          <option value="A.R.H TM">RH TM</option>
-          <option value="A.R.H TV">RH TV</option>
+          <option value="Programacion">Programacion</option>
+          <option value="A.R.H TM">A.R.H TM</option>
+          <option value="A.R.H TV">A.R.H TV</option>
           <option value="Electricidad">Electricidad</option>
           <option value="Ciencia de datos">Ciencia de datos</option>
         </select>
@@ -86,10 +85,10 @@
         <label for="formGroupExampleInput11" class="form-label">Promedio</label>
         <input type="text" class="form-control" name="formGroupExampleInput2" placeholder="Promedio" id="promedio"
           disabled>
-        <input type="button" value="Calcular Promedio"  class="btn btn-outline-success" id="calPromedio" name="calPromedio">
+        <input type="button" value="Calcular Promedio" class="btn btn-primary" id="calPromedio" name="calPromedio">
       </div>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button  class="btn btn-outline-success"type="submit">Guardar</button>
+        <button class="btn btn-primary" type="submit">Guardar</button>
       </div>
     </div>
   </div>

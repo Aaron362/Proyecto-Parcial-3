@@ -1,17 +1,17 @@
-
+<app-menu></app-menu>
 <br>
 <br>
-<div class="card w-55 mb-3 mx-auto mt-5">
-<form (ngSubmit)="verificarCredenciales(email.value, password.value)">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #email required>
-    <div id="emailHelp" class="form-text"></div>
+<div div class="form-group row">
+<form class="px-4 py-3" (ngSubmit)="verificarCredenciales(email.value, password.value)">
+  <div class="form-group">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email address</label>
+    <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" #email required>
+    <div id="emailHelp" ></div>
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" #password required>
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <input type="password"  id="exampleInputPassword1" #password required>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Ingresar</button>
 </form>
 </div>
