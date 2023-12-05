@@ -6,7 +6,7 @@ import { AlumnosService } from '../../services/alumnos.service';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 @Component({
   selector: 'app-formulario',
   templateUrl: './registro.component.html',
@@ -15,10 +15,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 export class RegistroComponent {
 
   alumno = new AlumnoModel();
-
+  selectedFile: File | null = null;
   constructor(private alumnoService: AlumnosService,
     private route: ActivatedRoute,
-    private router: Router ) { }
+    private router: Router,
+    private storage: AngularFireStorage ) { }
+
 
 
     ngOnInit() {
@@ -31,7 +33,7 @@ export class RegistroComponent {
             grupo = "A";
         } else if (carrera === "Contabilidad TV") {
             grupo = "B";
-        } else if (carrera === "Programacion") {
+        } else if (carrera === "Programación") {
             grupo = "C";
         } else if (carrera === "A.R.H TM") {
             grupo = "D";
@@ -97,6 +99,40 @@ export class RegistroComponent {
 
     }
 
+    onFileSelected(event: any) {
+      this.selectedFile = event.target.files[0] as File;
+      this.previewImage();
+    }
+
+    previewImage() {
+      if (this.selectedFile) {
+        const reader = new FileReader();
+        reader.readAsDataURL(this.selectedFile);
+        reader.onload = (_event) => {
+          this.alumno.imagen = reader.result;
+        };
+      }
+    }
+
+    upload() {
+      if (this.selectedFile) {
+        const filePath = '' + this.selectedFile.name;
+        const fileRef = this.storage.ref(filePath);
+        const task = this.storage.upload(filePath, this.selectedFile);
+
+        task.snapshotChanges().subscribe(
+          (snapshot) => {
+            fileRef.getDownloadURL().subscribe(url => {
+              console.log('URL de descarga:', url);
+            });
+          },
+          (error) => {
+            console.error('Error al subir la imagen:', error);
+          }
+        );
+      }
+    }
+
     guardar(form: NgForm,) {
 
       if (form.invalid) {
@@ -145,7 +181,7 @@ export class RegistroComponent {
             grupo = "A";
         } else if (carrera === "Contabilidad TV") {
             grupo = "F";
-        } else if (carrera === "Programacion") {
+        } else if (carrera === "Programación") {
             grupo = "B";
         } else if (carrera === "A.R.H TM") {
             grupo = "C";

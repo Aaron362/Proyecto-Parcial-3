@@ -17,13 +17,13 @@
       Datos del alumno
     </div>
     <div class="card-body">
-
       <div class="mb-3">
-        <div class="mb-3">
-          <label for="formFileMultiple" class="form-label">Imagen</label>
-          <input class="form-control" type="file" id="formFileMultiple" multiple [(ngModel)]="alumno.imagen"
-            name="imagen">
+        <input type="file" (change)="onFileSelected($event)">
+        <div *ngIf="selectedFile">
+            <h4>Vista previa de la imagen seleccionada:</h4>
+            <img [src]="alumno.imagen" *ngIf="alumno.imagen" width="200">
         </div>
+
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput2" class="form-label">Nombre</label>
@@ -59,7 +59,7 @@
           <option selected></option>
           <option value="Contabilidad TM">Contabilidad TM</option>
           <option value="Contabilidad TV">Contabilidad TV</option>
-          <option value="Programacion">Programacion</option>
+          <option value="Programación">Programación</option>
           <option value="A.R.H TM">RH TM</option>
           <option value="A.R.H TV">RH TV</option>
           <option value="Electricidad">Electricidad</option>

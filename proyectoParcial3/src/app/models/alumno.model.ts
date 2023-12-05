@@ -1,7 +1,7 @@
 export class AlumnoModel{
 
   id:string;
-  imagen:string;
+  imagen:string | ArrayBuffer | null = null;
   nombre:string;
   apellido:string;
   correo:string;

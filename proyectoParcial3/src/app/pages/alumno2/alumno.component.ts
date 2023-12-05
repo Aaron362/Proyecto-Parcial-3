@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
-import { AlumnoModel } from 'src/app/models/alumno.model';
-import { AlumnosService } from 'src/app/services/alumnos.service';
+import { Alumno2Model } from 'src/app/models/alumno2.model';
+import { Alumnos2Service } from 'src/app/services/alumnos2.service';
 
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-alumno',
-  templateUrl: './alumno.component.html',
-  styleUrls: ['./alumno.component.css']
+  selector: 'app-alumno2',
+  templateUrl: './alumno2.component.html',
+  styleUrls: ['./alumno2.component.css']
 })
 export class AlumnoComponent {
 
-  alumno: AlumnoModel[] = [];
+  alumno: Alumno2Model[] = [];
 
-  constructor ( private alumnosService: AlumnosService) {}
+  constructor ( private alumnos2Service: Alumnos2Service) {}
 
   ngOnInit(){
-    this.alumnosService.getAlumnos()
+    this.alumnos2Service.getAlumnos()
     .subscribe( resp =>{
       console.log(resp);
       this.alumno = resp;
@@ -24,7 +24,7 @@ export class AlumnoComponent {
 
   }
 
-  borrarAlumno( alumnos: AlumnoModel, i:number ){
+  borrarAlumno( alumnos: Alumno2Model, i:number ){
 
     Swal.fire({
       title: '¿Está seguro?',
