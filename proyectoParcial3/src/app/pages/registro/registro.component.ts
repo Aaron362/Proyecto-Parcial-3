@@ -23,15 +23,58 @@ export class RegistroComponent {
 
     ngOnInit() {
 
+      function asignarGrupo() {
+        const carrera = (document.getElementById('carrera') as HTMLInputElement).value;
+        let grupo = "";
+
+        if (carrera === "Contabilidad TM") {
+            grupo = "A";
+        } else if (carrera === "Contabilidad TV") {
+            grupo = "F";
+        } else if (carrera === "Programacion") {
+            grupo = "B";
+        } else if (carrera === "A.R.H TM") {
+            grupo = "C";
+        } else if (carrera === "A.R.H TV") {
+            grupo = "G";
+        } else if (carrera === "Electricidad") {
+            grupo = "D";
+        } else if (carrera === "Ciencia de datos") {
+            grupo = "E";
+        }
+
+        const g = grupo;
+        (document.getElementById('Asgrupo') as HTMLInputElement).value = g;
+        return g;
+      }
+
+      asignarGrupo();
+
+      const carreraElement = document.getElementById('carrera');
+      if (carreraElement) {
+          carreraElement.addEventListener('change', asignarGrupo);
+      }
+
+
       function calcularPromedio() {
-        const c1 = parseFloat((document.getElementById('c1') as HTMLInputElement).value);
-        const c2 = parseFloat((document.getElementById('c2') as HTMLInputElement).value);
-        const c3 = parseFloat((document.getElementById('c3') as HTMLInputElement).value);
+        const cal1 = parseFloat((document.getElementById('cal1') as HTMLInputElement).value);
+        const cal2 = parseFloat((document.getElementById('cal2') as HTMLInputElement).value);
+        const cal3 = parseFloat((document.getElementById('cal3') as HTMLInputElement).value);
 
         // Calcular el promedio
-        const promedio = (c1 + c2 + c3) / 3;
+        const promedio = (cal1 + cal2 + cal3) / 3;
+
+        let estado = "";
+
+        if (promedio >= 6 && promedio <= 10){
+          estado = "Aprobado"
+        } else {
+          estado = "Reoribado"
+        }
+
 
         (document.getElementById('promedio') as HTMLInputElement).value = promedio.toFixed(2);
+        return estado;
       }
 
         const calcularButton = document.getElementById('calPromedio');
@@ -54,7 +97,7 @@ export class RegistroComponent {
 
     }
 
-    guardar(form: NgForm) {
+    guardar(form: NgForm,) {
 
       if (form.invalid) {
         console.log('Formulario no válido');
@@ -79,7 +122,7 @@ export class RegistroComponent {
             text: 'Se actualizó correctamente',
             icon: 'success'
           }).then(() => {
-            // Redireccion
+            // Redirigir a la página deseada
             this.router.navigate(['/alumno']);
           });
 
@@ -90,11 +133,75 @@ export class RegistroComponent {
             text: 'Se creó correctamente',
             icon: 'success'
           }).then(() => {
-
+            // Redirigir a la página deseada
             this.router.navigate(['/alumno']);
           });
       }
+      function asignarGrupo() {
+        const carrera = (document.getElementById('carrera') as HTMLInputElement).value;
+        let grupo = "";
+
+        if (carrera === "Contabilidad TM") {
+            grupo = "A";
+        } else if (carrera === "Contabilidad TV") {
+            grupo = "F";
+        } else if (carrera === "Programacion") {
+            grupo = "B";
+        } else if (carrera === "A.R.H TM") {
+            grupo = "C";
+        } else if (carrera === "A.R.H TV") {
+            grupo = "G";
+        } else if (carrera === "Electricidad") {
+            grupo = "D";
+        } else if (carrera === "Ciencia de datos") {
+            grupo = "E";
+        }
+
+        const g = grupo;
+        (document.getElementById('Asgrupo') as HTMLInputElement).value = g;
+        return g;
+      }
+
+      asignarGrupo();
+
+      const carreraElement = document.getElementById('carrera');
+      if (carreraElement) {
+          carreraElement.addEventListener('change', asignarGrupo);
+      }
+
+      this.alumno.grupo = asignarGrupo();
+
+      function calcularPromedio() {
+        const cal1 = parseFloat((document.getElementById('cal1') as HTMLInputElement).value);
+        const cal2 = parseFloat((document.getElementById('cal2') as HTMLInputElement).value);
+        const cal3 = parseFloat((document.getElementById('cal3') as HTMLInputElement).value);
+
+        // Calcular el promedio
+        const promedio = (cal1 + cal2 + cal3) / 3;
+
+        let estado = "";
+
+        if (promedio >= 6 && promedio <= 10){
+          estado = "Aprobado"
+        } else {
+          estado = "Reprobado"
+        }
+
+
+        (document.getElementById('promedio') as HTMLInputElement).value = promedio.toFixed(2);
+        return estado;
+      }
+
+        const calcularButton = document.getElementById('calPromedio');
+        if (calcularButton) {
+          calcularButton.addEventListener('click', calcularPromedio);
+        }
+
+        calcularPromedio();
+
+        this.alumno.aprobado_reprobado = calcularPromedio();
 
       peticion.subscribe(resp => {});
     }
+
 }
