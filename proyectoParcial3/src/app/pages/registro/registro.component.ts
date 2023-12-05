@@ -30,17 +30,17 @@ export class RegistroComponent {
         if (carrera === "Contabilidad TM") {
             grupo = "A";
         } else if (carrera === "Contabilidad TV") {
-            grupo = "F";
-        } else if (carrera === "Programacion") {
             grupo = "B";
-        } else if (carrera === "A.R.H TM") {
+        } else if (carrera === "Programacion") {
             grupo = "C";
-        } else if (carrera === "A.R.H TV") {
-            grupo = "G";
-        } else if (carrera === "Electricidad") {
+        } else if (carrera === "A.R.H TM") {
             grupo = "D";
-        } else if (carrera === "Ciencia de datos") {
+        } else if (carrera === "A.R.H TV") {
             grupo = "E";
+        } else if (carrera === "Electricidad") {
+            grupo = "F";
+        } else if (carrera === "Ciencia de datos") {
+            grupo = "G";
         }
 
         const g = grupo;
